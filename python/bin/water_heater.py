@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import time
 import smbus
 import sys
@@ -15,13 +17,19 @@ DEVICE_ADDR = 0x10
 
 bus = smbus.SMBus(DEVICE_BUS)
 
+print(" ")
 
 bus.write_byte_data(DEVICE_ADDR, RELAY, 0xFF)
 print('Relay '+config['WATERHEATER']['RELAY']+' is on')
+print(time.asctime())
 time.sleep(SLT)
 
 bus.write_byte_data(DEVICE_ADDR, RELAY, 0x00)
+print(" ")
 print('Relay '+config['WATERHEATER']['RELAY']+' is off')
+print(time.asctime())
 time.sleep(1)
+
+print(" ")
 
 sys.exit()
