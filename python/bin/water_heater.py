@@ -13,10 +13,12 @@ config.sections()
 RELAY = int(config['WATERHEATER']['RELAY'])
 SLT = int(config['WATERHEATER']['SLT'])
 DEVICE_BUS = int(config['I2C']['DEVICE_BUS'])
+LOGLEVEL = config['LOGGING']['LEVEL']
+LOGNAME = config['LOGGING']['FILE']
 DEVICE_ADDR = 0x10
 
 ## Add logging information
-logging.basicConfig(filename='water_heater.log', level=logging.DEBUG)
+logging.basicConfig(filename=LOGNAME, level=LOGLEVEL)
 logging.info(" ")
 logging.info("==============================================")
 logging.info("Started up @ "+time.asctime())
