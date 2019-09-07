@@ -8,4 +8,4 @@ SI7021.py  - Script to log the temperature from an SI7021 chip
 
 sprinkler.py - script to run a sprinkler valve with a GPIO controlled relay
 
-sprinkler_status.py - not wuite working status script for the sprinkler relay
+sprinkler_status.py - not quite working status script for the sprinkler relay
