@@ -9,6 +9,7 @@
 #include <linux/i2c-dev.h>
 #include <sys/ioctl.h>
 #include <fcntl.h>
+#include "logger.h"
 
 void main()
 {
@@ -18,6 +19,7 @@ void main()
 	if ((file = open(bus, O_RDWR)) < 0) 
 	{
 		printf("Failed to open the bus. \n");
+		LOG_PRINT("Failed to open the bus. \n");
 		exit(1);
 	}
 	// Get I2C device, MCP23008 I2C address is 0x20(32)
@@ -40,6 +42,7 @@ void main()
 		config[1] = data;
 		write(file, config, 2);
 		printf("Turning Relay %d of port ON \n" ,i);
+		LOG_PRINT("Turning Relay %d of port ON \n" ,i);
 		data = (data << 1);
 		data += 1;
 		sleep(1);
@@ -54,6 +57,7 @@ void main()
 		config[1] = data;
 		write(file, config, 2);
 		printf("Turning Relay %d of port OFF \n" ,i);
+		LOG_PRINT("Turning Relay %d of port OFF \n" ,i);
 		data = (data << 1);
 		sleep(1);
 	}
