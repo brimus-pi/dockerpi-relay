@@ -39,7 +39,7 @@ void log_print(char* filename, int line, char *fmt,...)
       fp = fopen ("log.txt","w");
     
     fprintf(fp,"%s ",print_time());
-    fprintf(fp,"[%s][line: %d] ",filename,line);
+    fprintf(fp,"INFO: ",filename,line);
     va_start( list, fmt );
 
     for ( p = fmt ; *p ; ++p )
