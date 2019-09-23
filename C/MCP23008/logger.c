@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "logger.h"
+
 FILE *fp ;
 static int SESSION_TRACKER; //Keeps track of session
 
